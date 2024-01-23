@@ -1,0 +1,15 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+/src/main/java/org/example/PetREST/PApiService.java
+/src/main/java/org/example/PetREST/PetApiService.java
+/src/main/java/org/example/PetREST/PetFabric.java
+/src/main/java/org/example/PetREST/PetRequestModelDTO.java
+/src/main/java/org/example/PetREST/PetResponseModelDTO.java
+
+/src/test/java/pet/PetRestApiBaseTest.java
+/src/test/java/pet/PetTestApi.java
+
+/.idea/inspectionProfiles/
