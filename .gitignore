@@ -12,4 +12,13 @@ target/
 /src/test/java/pet/PetRestApiBaseTest.java
 /src/test/java/pet/PetTestApi.java
 
-/.idea/inspectionProfiles/
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+*.xml
+
+.build/
+*/reports
+*/downloads
