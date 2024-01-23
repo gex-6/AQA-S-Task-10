@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Task2Suite">
+    <test name="Task2Test">
+        <classes>
+            <class name="Task2"/>
+        </classes>
+    </test>
+</suite>
