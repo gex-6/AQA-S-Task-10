@@ -1,7 +1,6 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
-import lombok.Data;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -22,39 +21,42 @@ public class Task3 {
     int numberOfFilmsToCheck = 5;
     String imdbUrl = "https://www.imdb.com/chart/top/";
 
+    String titleSelector = ".hero__primary-text";
+    String yearSelector = "a.ipc-link.ipc-link--baseAlt.ipc-link--inherit-color[href$=\"releaseinfo?ref_=tt_ov_rdat\"]";
+    String ratingSelector = "div.sc-bde20123-2.cdQqzc > span.sc-bde20123-1.cMEQkK:first-child";
+    String titlesDataSelector = ".ipc-metadata-list.ipc-metadata-list--dividers-between.sc-71ed9118-0.kxsUNk.compact-list-view.ipc-metadata-list--base .ipc-title__text";
+    String yearsDataSelector = ".sc-1e00898e-7.hcJWUf.cli-title-metadata .sc-1e00898e-8.hsHAHC.cli-title-metadata-item";
+    String ratingsDataSelector = ".ipc-rating-star.ipc-rating-star--base.ipc-rating-star--imdb.ratingGroup--imdb-rating";
+
     @BeforeMethod
     public void getCollectionOfFilmsToClick() {
         elements = $$(".ipc-lockup-overlay__screen");
     }
 
     @AfterMethod
-    public void resetIterator() { if (iterator == (numberOfFilmsToCheck - 1)) iterator = 0; }
+    public void resetIterator() { if (iterator == numberOfFilmsToCheck) iterator = 0; }
 
     @Test (dataProvider = "filmTitles")
     public void checkFilmsNames(String filmTitle) {
         Selenide.open(imdbUrl);
         Selenide.$(elements.get(iterator)).click();
-        Selenide.$(".hero__primary-text").shouldHave(Condition.text(filmTitle));
+        Selenide.$(titleSelector).shouldHave(Condition.text(filmTitle));
         iterator++;
     }
 
-    //fixme: change cssSelector
     @Test (dataProvider = "filmYears")
     public void checkFilmsYears(String filmYear) {
         Selenide.open(imdbUrl);
         Selenide.$(elements.get(iterator)).click();
-        Selenide.$("sc-e226b0e3-3.dwkouE")
-                .shouldHave(Condition.text(filmYear));
+        Selenide.$(yearSelector).shouldHave(Condition.text(filmYear));
         iterator++;
     }
 
-    //fixme: change cssSelector
     @Test (dataProvider = "filmRatings")
     public void checkFilmsRatings(String filmRating) {
         Selenide.open(imdbUrl);
         Selenide.$(elements.get(iterator)).click();
-        Selenide.$("//li[@class='ipc-inline-list__item' and @role='presentation']")
-                .shouldHave(Condition.text(filmRating));
+        Selenide.$(ratingSelector).shouldHave(Condition.text(filmRating));
         iterator++;
     }
 
@@ -97,7 +99,7 @@ public class Task3 {
     public List<String> getFilmsTitles(String url) {
         List<String> filmNamesTemp = new ArrayList<>();
         Selenide.open(url);
-        ElementsCollection names = $$(".ipc-metadata-list.ipc-metadata-list--dividers-between.sc-71ed9118-0.kxsUNk.compact-list-view.ipc-metadata-list--base .ipc-title__text");
+        ElementsCollection names = $$(titlesDataSelector);
         names.forEach(element -> filmNamesTemp.add(element.getText()));
         return removeNumbers(filmNamesTemp);
     }
@@ -105,7 +107,7 @@ public class Task3 {
     public List<String> getFilmsYears(String url) {
         List<String> filmYearsTemp = new ArrayList<>();
         Selenide.open(url);
-        ElementsCollection years = $$(".sc-1e00898e-7.hcJWUf.cli-title-metadata .sc-1e00898e-8.hsHAHC.cli-title-metadata-item");
+        ElementsCollection years = $$(yearsDataSelector);
         years.forEach(element -> filmYearsTemp.add(element.getText()));
         return filterYears(filmYearsTemp);
     }
@@ -113,7 +115,7 @@ public class Task3 {
     public List<String> getFilmsRating(String url) {
         List<String> filmsRating = new ArrayList<>();
         Selenide.open(url);
-        ElementsCollection ratings = $$(".ipc-rating-star.ipc-rating-star--base.ipc-rating-star--imdb.ratingGroup--imdb-rating");
+        ElementsCollection ratings = $$(ratingsDataSelector);
         for (org.openqa.selenium.WebElement element : ratings) {
             String ariaLabel = element.getAttribute("aria-label");
             if (ariaLabel != null && ariaLabel.startsWith("IMDb rating: ")) {

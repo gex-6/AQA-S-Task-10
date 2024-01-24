@@ -12,7 +12,6 @@ public class Task1 {
     protected final HashMap<String, String[]> DICTIONARY_MAP = new HashMap<>();
     protected final String INPUT_LOCATOR = "textarea";
     protected final String OUTPUT_LOCATOR = "span.ryNqvb";
-    protected final int THREAD_SLEEP = 4000;
 
     @BeforeClass
     public void setTestValues() {
@@ -89,179 +88,139 @@ public class Task1 {
     public void checkUaToEnTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("English")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("English")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToSpTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Spanish")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Spanish")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToPlTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Polish")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Polish")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToPtTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Portuguese")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Portuguese")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToRoTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Romanian")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Romanian")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToJaTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Japanese")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Japanese")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToItTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Italian")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Italian")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToSrTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Serbian")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Serbian")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToDeTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("German")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("German")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToSkTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Slovak")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Slovak")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToNlTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Netherland")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Netherland")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToSwTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Sweden")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Sweden")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToTrTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Turkish")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Turkish")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToIsTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Iceland")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Iceland")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToElTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Greek")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Greek")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToThTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Thai")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Thai")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToKaTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Georgian")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Georgian")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToNeTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Nepal")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Nepal")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToMnTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Mongolia")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Mongolia")[1]));
-        Thread.sleep(3000);
     }
 
     @Test
     public void checkUaToEtTranslate() throws InterruptedException {
         Selenide.open(DICTIONARY_MAP.get("Estonia")[0]);
         Selenide.$(INPUT_LOCATOR).setValue(SEARCH_INPUT).pressEnter();
-        Thread.sleep(3000);
         Selenide.$(OUTPUT_LOCATOR).shouldHave(Condition.text(DICTIONARY_MAP.get("Estonia")[1]));
-        Thread.sleep(3000);
     }
 }
